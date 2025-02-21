@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Efficiency Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #1e3a5f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        ul.benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.benefits-list li {
+            background: #e6f7ff;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 5px solid #007bff;
+        }
+
+        .challenges-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .challenges-table th, .challenges-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .challenges-table th {
+            background: #007bff;
+            color: white;
+        }
+
+        .faq {
+            margin-top: 20px;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px 0;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            display: none;
+            background: #e6f7ff;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            width: 200px;
+            padding: 10px;
+            background: #1e3a5f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover {
+            background: #162b46;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Energy Efficiency Programs</h1>
+        <p>Reducing energy consumption for a sustainable future.</p>
+    </header>
+
+    <section class="content">
+        <img src="https://th.bing.com/th/id/OIP.tKAy7ef6O60rzkjmc6GEGAHaEK?rs=1&pid=ImgDetMain">
+
+        <h2>🌍 Project Overview</h2>
+        <p>**Energy Efficiency Programs** focus on reducing energy waste, improving efficiency in households, industries, and commercial buildings, and promoting the use of renewable energy. These initiatives help lower energy bills, reduce carbon footprints, and improve overall sustainability.</p>
+
+        <h2>✅ Benefits of the Project</h2>
+        <ul class="benefits-list">
+            <li>⚡ **Reduced Energy Consumption** - Saves electricity and reduces utility bills.</li>
+            <li>💰 **Lower Costs** - Minimizes expenses on fuel and energy sources.</li>
+            <li>🌱 **Environmental Impact** - Decreases carbon footprint and promotes sustainability.</li>
+            <li>🏢 **Improved Efficiency** - Optimizes energy use in businesses and homes.</li>
+            <li>💡 **Encourages Innovation** - Promotes smart grids and green technologies.</li>
+        </ul>
+
+        <h2>⚠️ Challenges & Solutions</h2>
+        <table class="challenges-table">
+            <tr>
+                <th>Challenges</th>
+                <th>Solutions</th>
+            </tr>
+            <tr>
+                <td>High initial cost of energy-efficient appliances</td>
+                <td>Government incentives and subsidies for energy-efficient technologies</td>
+            </tr>
+            <tr>
+                <td>Lack of awareness</td>
+                <td>Public campaigns and education programs</td>
+            </tr>
+            <tr>
+                <td>Limited access to renewable energy sources</td>
+                <td>Investment in infrastructure and better policies</td>
+            </tr>
+        </table>
+
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq">
+            <button class="faq-question">What are energy efficiency programs? <span>➕</span></button>
+            <div class="faq-answer">Energy efficiency programs are initiatives designed to reduce energy consumption through better appliances, insulation, and renewable energy integration. They help lower energy costs, improve sustainability, and reduce environmental impact.</div>
+
+            <button class="faq-question">How do energy efficiency programs save money? <span>➕</span></button>
+            <div class="faq-answer">By using energy-efficient appliances, LED lights, and insulation, energy efficiency programs help households and businesses save money on electricity bills. They also reduce reliance on expensive energy sources like fossil fuels.</div>
+
+            <button class="faq-question">What role do governments play in energy efficiency? <span>➕</span></button>
+            <div class="faq-answer">Governments support energy efficiency programs by offering subsidies, tax credits, and regulations that encourage the use of energy-efficient appliances and renewable energy sources.</div>
+
+            <button class="faq-question">Can energy efficiency help fight climate change? <span>➕</span></button>
+            <div class="faq-answer">Yes! Energy efficiency reduces greenhouse gas emissions by lowering energy consumption, reducing the need for fossil fuels, and encouraging cleaner alternatives like solar and wind energy.</div>
+
+            <button class="faq-question">What are some simple ways to improve energy efficiency at home? <span>➕</span></button>
+            <div class="faq-answer">Some simple ways include using LED lights, unplugging unused devices, using smart thermostats, and insulating homes to prevent energy loss.</div>
+        </div>
+
+        <a href="index.html" class="back-button">⬅ Back to Projects</a>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const faqButtons = document.querySelectorAll(".faq-question");
+
+            faqButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const answer = button.nextElementSibling;
+                    const icon = button.querySelector("span");
+
+                    if (answer.style.display === "block") {
+                        answer.style.display = "none";
+                        icon.textContent = "➕";
+                    } else {
+                        answer.style.display = "block";
+                        icon.textContent = "➖";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
