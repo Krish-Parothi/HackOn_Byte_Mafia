@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Pollution Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #1e3a5f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #d35400;
+        }
+
+        ul.benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.benefits-list li {
+            background: #fcecdc;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 5px solid #d35400;
+        }
+
+        .challenges-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .challenges-table th, .challenges-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .challenges-table th {
+            background: #d35400;
+            color: white;
+        }
+
+        .faq {
+            margin-top: 20px;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 10px;
+            background: #d35400;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px 0;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            display: none;
+            background: #fcecdc;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            width: 200px;
+            padding: 10px;
+            background: #1e3a5f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover {
+            background: #162b46;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Industrial Pollution Control</h1>
+        <p>Strategies to minimize environmental damage caused by industries.</p>
+    </header>
+
+    <section class="content">
+        <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230208173229/Need-for-Pollution-Control.png">
+
+        <h2>🌍 Project Overview</h2>
+        <p>**Industrial Pollution Control** is a crucial initiative aimed at reducing pollution from factories, power plants, and industrial facilities. By implementing strict environmental regulations, using cleaner technologies, and improving waste management, we can minimize the negative impact on air, water, and soil.</p>
+
+        <h2>✅ Benefits of the Project</h2>
+        <ul class="benefits-list">
+            <li>💨 **Cleaner Air** - Reduces harmful emissions like CO2 and SO2.</li>
+            <li>🌊 **Safe Water Bodies** - Prevents industrial waste from contaminating rivers and lakes.</li>
+            <li>♻️ **Sustainable Waste Management** - Promotes recycling and proper disposal of industrial waste.</li>
+            <li>🏭 **Eco-Friendly Industries** - Encourages businesses to adopt green practices.</li>
+            <li>🌍 **Climate Change Mitigation** - Lowers greenhouse gas emissions and promotes sustainability.</li>
+        </ul>
+
+        <h2>⚠️ Challenges & Solutions</h2>
+        <table class="challenges-table">
+            <tr>
+                <th>Challenges</th>
+                <th>Solutions</th>
+            </tr>
+            <tr>
+                <td>High cost of pollution control equipment</td>
+                <td>Government incentives and subsidies for cleaner technologies</td>
+            </tr>
+            <tr>
+                <td>Lack of awareness among industries</td>
+                <td>Strict regulations and educational programs</td>
+            </tr>
+            <tr>
+                <td>Difficulty in monitoring industrial emissions</td>
+                <td>Use of IoT-based pollution monitoring systems</td>
+            </tr>
+        </table>
+
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq">
+            <button class="faq-question">What are the main causes of industrial pollution? <span>➕</span></button>
+            <div class="faq-answer">Industrial pollution is caused by emissions from factories, improper waste disposal, chemical spills, and excessive resource consumption.</div>
+
+            <button class="faq-question">How can industries reduce pollution? <span>➕</span></button>
+            <div class="faq-answer">Industries can reduce pollution by adopting green technology, improving waste management, using filters for emissions, and complying with environmental regulations.</div>
+
+            <button class="faq-question">What role does the government play in controlling industrial pollution? <span>➕</span></button>
+            <div class="faq-answer">Governments set environmental laws, impose penalties for violations, and provide incentives for industries that adopt eco-friendly practices.</div>
+
+            <button class="faq-question">How does industrial pollution affect human health? <span>➕</span></button>
+            <div class="faq-answer">It leads to respiratory diseases, waterborne illnesses, and long-term exposure can cause severe health conditions like cancer.</div>
+
+            <button class="faq-question">What are some innovative technologies to control industrial pollution? <span>➕</span></button>
+            <div class="faq-answer">Advanced filtration systems, carbon capture technology, wastewater treatment plants, and green manufacturing processes help control pollution.</div>
+        </div>
+
+        <a href="index.html" class="back-button">⬅ Back to Projects</a>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const faqButtons = document.querySelectorAll(".faq-question");
+
+            faqButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const answer = button.nextElementSibling;
+                    const icon = button.querySelector("span");
+
+                    if (answer.style.display === "block") {
+                        answer.style.display = "none";
+                        icon.textContent = "➕";
+                    } else {
+                        answer.style.display = "block";
+                        icon.textContent = "➖";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
