@@ -118,8 +118,8 @@
         
         <div class="content-box">
             <h3>Project Details</h3>
-            <p><strong>Project Name:</strong> <span id="project-name">Loading...</span></p>
-            <p><strong>Description:</strong> <span id="project-description">Loading...</span></p>
+            <p><strong>Project Name:</strong> <span id="project-name">EcoTrack - Carbon Offset Tracking & Verification Platform</span></p>
+            <p><strong>Description:</strong> <span id="project-description">A blockchain-powered platform that ensures transparency in carbon offset projects. EcoTrack allows individuals and businesses to contribute to verified initiatives like reforestation and renewable energy while tracking their impact in real-time. Join us in creating a greener, more sustainable future!</span></p>
         </div>
 
         <div class="content-box">
@@ -150,12 +150,6 @@
     </section>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const params = new URLSearchParams(window.location.search);
-            document.getElementById("project-name").textContent = params.get("name") || "Unknown Project";
-            document.getElementById("project-description").textContent = params.get("desc") || "No description available.";
-        });
-
         function shareProject() {
             const name = document.getElementById("project-name").textContent;
             const desc = document.getElementById("project-description").textContent;
