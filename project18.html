@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Urban Transport</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #2e7d32;
+        }
+
+        ul.benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.benefits-list li {
+            background: #e8f5e9;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 5px solid #2e7d32;
+        }
+
+        .challenges-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .challenges-table th, .challenges-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .challenges-table th {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .faq {
+            margin-top: 20px;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 10px;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px 0;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            display: none;
+            background: #e8f5e9;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            width: 200px;
+            padding: 10px;
+            background: #1b5e20;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover {
+            background: #124116;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sustainable Urban Transport</h1>
+        <p>Eco-friendly mobility solutions for cleaner and smarter cities.</p>
+    </header>
+
+    <section class="content">
+        <img src="https://i.pinimg.com/originals/dd/2e/9e/dd2e9ebf55f41bb8f9a1f0aebab70a23.jpg">
+
+        <h2>🚆 Project Overview</h2>
+        <p>**Sustainable Urban Transport** aims to develop eco-friendly transportation solutions, including **electric buses, cycling infrastructure, pedestrian-friendly streets, and smart public transit**. This initiative reduces traffic congestion, improves air quality, and enhances urban mobility.</p>
+
+        <h2>✅ Benefits of the Project</h2>
+        <ul class="benefits-list">
+            <li>🌍 **Reduced Carbon Footprint** - Promotes low-emission transport.</li>
+            <li>🚲 **Healthier Lifestyles** - Encourages cycling and walking.</li>
+            <li>🚦 **Less Traffic Congestion** - Efficient public transit reduces road crowding.</li>
+            <li>💰 **Cost Savings** - Affordable transport options for all income groups.</li>
+            <li>🏙️ **Smart City Development** - Integrates technology for real-time transport solutions.</li>
+        </ul>
+
+        <h2>⚠️ Challenges & Solutions</h2>
+        <table class="challenges-table">
+            <tr>
+                <th>Challenges</th>
+                <th>Solutions</th>
+            </tr>
+            <tr>
+                <td>High initial cost for infrastructure</td>
+                <td>Government funding and public-private partnerships</td>
+            </tr>
+            <tr>
+                <td>Lack of awareness and resistance to change</td>
+                <td>Public campaigns promoting benefits of sustainable transport</td>
+            </tr>
+            <tr>
+                <td>Poor urban planning</td>
+                <td>Smart city development and better road designs</td>
+            </tr>
+        </table>
+
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq">
+            <button class="faq-question">What is sustainable urban transport? <span>➕</span></button>
+            <div class="faq-answer">It refers to transport systems that reduce environmental impact, such as electric vehicles, cycling lanes, and improved public transit.</div>
+
+            <button class="faq-question">Why is public transport important in cities? <span>➕</span></button>
+            <div class="faq-answer">Public transport reduces traffic congestion, lowers pollution, and provides affordable mobility options.</div>
+
+            <button class="faq-question">How can cycling improve urban transport? <span>➕</span></button>
+            <div class="faq-answer">Cycling reduces traffic, improves health, and is an eco-friendly alternative to cars.</div>
+
+            <button class="faq-question">What are smart transport solutions? <span>➕</span></button>
+            <div class="faq-answer">They include real-time tracking, traffic management systems, and AI-based public transit planning.</div>
+
+            <button class="faq-question">How can cities encourage people to use sustainable transport? <span>➕</span></button>
+            <div class="faq-answer">By improving infrastructure, offering subsidies, and promoting awareness campaigns.</div>
+        </div>
+
+        <a href="index.html" class="back-button">⬅ Back to Projects</a>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const faqButtons = document.querySelectorAll(".faq-question");
+
+            faqButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const answer = button.nextElementSibling;
+                    const icon = button.querySelector("span");
+
+                    if (answer.style.display === "block") {
+                        answer.style.display = "none";
+                        icon.textContent = "➕";
+                    } else {
+                        answer.style.display = "block";
+                        icon.textContent = "➖";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
