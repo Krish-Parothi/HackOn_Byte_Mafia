@@ -106,6 +106,21 @@
             text-decoration: none;
             color: var(--primary-text);
         }
+        .back-button {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            width: 200px;
+            padding: 10px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover {
+            background: #1a252f;
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -139,6 +154,7 @@
                 </ul>
             </section>
         </div>
+        <a href="1234.html" class="back-button">⬅ Back to Home</a>
     </main>
     <script>
         document.querySelector('.dark-mode-toggle').addEventListener('click', function() {
