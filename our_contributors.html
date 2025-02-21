@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Contributors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contributor {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .info {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Our Contributors</h2>
+        <div id="contributors"></div>
+    </div>
+
+    <script>
+        const contributors = [
+            { name: "Krish Parothi", review: "Great experience working with the team!" },
+            { name: "Ranveer Bhortekar", review: "I love being a contributor here!" },
+            { name: "Anand Maknekar", review: "Fantastic community and support!" }
+        ];
+
+        const container = document.getElementById("contributors");
+        contributors.forEach(contributor => {
+            const div = document.createElement("div");
+            div.classList.add("contributor");
+            div.innerHTML = `
+                <div class="info">
+                    <h3>${contributor.name}</h3>
+                    <p>${contributor.review}</p>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>
