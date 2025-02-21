@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Offset Dashboard</title>
+    <style>
+        :root {
+            --primary-bg: #fff;
+            --primary-text: #333;
+            --secondary-bg: #f4f4f4;
+            --header-bg: #333;
+            --header-text: #fff;
+        }
+        
+        body.dark-mode {
+            --primary-bg: #121212;
+            --primary-text: #ddd;
+            --secondary-bg: #1e1e1e;
+            --header-bg: #000;
+            --header-text: #0f0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--header-text);
+            text-decoration: none;
+        }
+
+        .dark-mode-toggle {
+            background: none;
+            border: 1px solid var(--header-text);
+            color: var(--header-text);
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--secondary-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .charts canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links ul li {
+            margin: 5px 0;
+        }
+
+        .quick-links ul li a {
+            text-decoration: none;
+            color: var(--primary-text);
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Carbon Offset Dashboard</div>
+        <button class="dark-mode-toggle">🌙</button>
+    </header>
+    <main>
+        <div class="grid-container">
+            <section class="card charts">
+                <h2>Contribution Trends</h2>
+                <canvas id="contributionChart"></canvas>
+            </section>
+            <section class="card impact">
+                <h2>Environmental Impact</h2>
+                <canvas id="impactChart"></canvas>
+            </section>
+            <section class="card kpis">
+                <h2>Key Performance Indicators</h2>
+                <p>Total Contributions: <strong id="totalContributions">120</strong></p>
+                <p>Total Trees Planted: <strong id="totalTrees">1500</strong></p>
+                <p>Total Carbon Sequestered: <strong id="totalCarbon">5000kg</strong></p>
+            </section>
+            <section class="card quick-links">
+                <h2>Quick Access Links</h2>
+                <ul>
+                    <li><a href="#">My Contributions</a></li>
+                    <li><a href="#">Top Projects</a></li>
+                    <li><a href="#">Impact Reports</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <script>
+        document.querySelector('.dark-mode-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+        
+        const ctx1 = document.getElementById('contributionChart').getContext('2d');
+        const ctx2 = document.getElementById('impactChart').getContext('2d');
+        
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Contributions',
+                    data: [10, 15, 8, 12, 20],
+                    borderColor: 'blue',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: { enabled: true }
+                }
+            }
+        });
+        
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Trees Planted', 'CO2 Reduced'],
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['green', 'blue']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

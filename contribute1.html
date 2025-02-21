@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribute to Project</title>
+    <script>
+        function openProjectPage(name, desc) {
+            const url = `contribute.html?name=${encodeURIComponent(name)}&desc=${encodeURIComponent(desc)}`;
+            window.open(url, "_blank");
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            text-align: center;
+            color: white;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1.5em;
+            font-size: 26px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contribution-section {
+            padding: 20px;
+        }
+
+        .content-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 60%;
+            margin: 20px auto;
+            text-align: left;
+            color: black;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h3 {
+            color: #27ae60;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #ecf0f1;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .back-button {
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: #1a252f;
+        }
+
+        .share-button {
+            background: #27ae60;
+            color: white;
+        }
+
+        .share-button:hover {
+            background: #1e8449;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Thank You for Your Contribution!</h1>
+    </header>
+    
+    <section class="contribution-section">
+        <h2>Your Contribution Makes a Difference</h2>
+        <p>By supporting this project, you are helping to create a sustainable future. Your contribution aids in environmental conservation, reducing carbon footprints, and promoting green energy initiatives.</p>
+        
+        <div class="content-box">
+            <h3>Project Details</h3>
+            <p><strong>Project Name:</strong> <span id="project-name">Loading...</span></p>
+            <p><strong>Description:</strong> <span id="project-description">Loading...</span></p>
+        </div>
+
+        <div class="content-box">
+            <h3>How Your Contribution Helps:</h3>
+            <ul>
+                <li>🌿 Restores forests and improves biodiversity.</li>
+                <li>☀️ Supports renewable energy initiatives.</li>
+                <li>💧 Helps communities with clean water projects.</li>
+                <li>🌍 Reduces carbon emissions and fights climate change.</li>
+                <li>👩‍🌾 Provides jobs and supports local communities.</li>
+            </ul>
+        </div>
+
+        <div class="content-box">
+            <h3>What You Can Do Next:</h3>
+            <p>Stay engaged and continue making an impact by:</p>
+            <ul>
+                <li>✅ Sharing this initiative with friends and family.</li>
+                <li>✅ Tracking your contributions on your dashboard.</li>
+                <li>✅ Exploring more projects to support.</li>
+            </ul>
+        </div>
+
+        <div class="buttons-container">
+            <a href="1234.html" class="btn back-button">Go Back to Homepage</a>
+            <button class="btn share-button" onclick="shareProject()">Share</button>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById("project-name").textContent = params.get("name") || "Unknown Project";
+            document.getElementById("project-description").textContent = params.get("desc") || "No description available.";
+        });
+
+        function shareProject() {
+            const name = document.getElementById("project-name").textContent;
+            const desc = document.getElementById("project-description").textContent;
+            const shareText = `Check out this project: ${name} - ${desc}. Join me in making a difference!`;
+            if (navigator.share) {
+                navigator.share({ title: name, text: shareText, url: window.location.href });
+            } else {
+                alert("Sharing not supported on this browser. Copy and share manually: " + window.location.href);
+            }
+        }
+    </script>
+</body>
+</html>
