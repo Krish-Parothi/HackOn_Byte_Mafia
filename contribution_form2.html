@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribution Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        form, .review-section, .receipt-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input, select, textarea {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            background: #f4f4f4;
+            transition: 0.3s;
+            outline: none;
+        }
+        input:focus, select:focus, textarea:focus {
+            background: #e8f0fe;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+        .review-section, .receipt-section, .payment-details {
+            display: none;
+        }
+        .button-group button {
+            width: 30%;
+            margin: 5px;
+        }
+        #qrcode {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Contribution Form</h2>
+    <form id="contributionForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="amount">Amount (if applicable):</label>
+        <input type="number" id="amount" name="amount" min="1" oninput="togglePaymentDetails()">
+        
+        <div class="payment-details" id="paymentDetails">
+            <label for="payment_method">Payment Method:</label>
+            <select id="payment_method" name="payment_method" required onchange="generateQRCode()">
+                <option value="credit_card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="bank_transfer">Bank Transfer</option>
+            </select>
+            <div id="qrcode"></div>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="review-section" id="reviewSection">
+        <h2>Review Your Contribution</h2>
+        <p id="reviewDetails"></p>
+        <div class="button-group">
+            <button onclick="window.print()">Print</button>
+            <button onclick="editForm()">Edit</button>
+            <button onclick="generateReceipt()">Generate Receipt</button>
+        </div>
+    </div>
+
+    <div class="receipt-section" id="receiptSection">
+        <h2>Payment Receipt</h2>
+        <p id="receiptDetails"></p>
+        <button onclick="window.print()">Print Receipt</button>
+        <button onclick="location.reload()">New Contribution</button>
+    </div>
+
+    <script>
+        function togglePaymentDetails() {
+            let amount = document.getElementById("amount").value;
+            let paymentDetails = document.getElementById("paymentDetails");
+            paymentDetails.style.display = amount && amount > 0 ? "block" : "none";
+            generateQRCode();
+        }
+
+        function generateQRCode() {
+            let amount = document.getElementById("amount").value;
+            let paymentMethod = document.getElementById("payment_method").value;
+            let qrContainer = document.getElementById("qrcode");
+            qrContainer.innerHTML = "";
+            
+            if (amount && amount > 0) {
+                let paymentURL = `https://payment-portal.com/pay?method=${paymentMethod}&amount=${amount}`;
+                new QRCode(qrContainer, {
+                    text: paymentURL,
+                    width: 128,
+                    height: 128
+                });
+            }
+        }
+
+        document.getElementById("contributionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("reviewDetails").innerHTML = `
+                <strong>Name:</strong> ${document.getElementById("name").value} <br>
+                <strong>Email:</strong> ${document.getElementById("email").value} <br>
+                <strong>Amount:</strong> ${document.getElementById("amount").value || "N/A"} <br>
+                <strong>Payment Method:</strong> ${document.getElementById("payment_method").value}
+            `;
+            document.getElementById("contributionForm").style.display = "none";
+            document.getElementById("reviewSection").style.display = "block";
+        });
+
+        function editForm() {
+            document.getElementById("reviewSection").style.display = "none";
+            document.getElementById("contributionForm").style.display = "block";
+        }
+
+        function generateReceipt() {
+            document.getElementById("receiptDetails").innerHTML = document.getElementById("reviewDetails").innerHTML;
+            document.getElementById("reviewSection").style.display = "none";
+            document.getElementById("receiptSection").style.display = "block";
+        }
+    </script>
+</body>
+</html>
